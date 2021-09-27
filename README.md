@@ -7,7 +7,7 @@
 ### There is an image of bioinformatics
 ![Blackcat](https://microbenotes.com/wp-content/uploads/2018/12/Bioinformatics-Introduction-and-Applications.jpg)
 
-### This is link to Bioinformatics Wikipedia. 
+### This is a link to Bioinformatics Wikipedia. 
 Introduction to [bioinformatics](https://en.wikipedia.org/wiki/Bioinformatics)
 
 #### If you have any question with this repository, please email me:
