@@ -13,24 +13,41 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
+This Markdown document is used for STA 426 Exercise 1b. 
 -------
-First, sample 100 values from a log-normal distribution (mu = 1, sigma = 0.25).
+Clear memory
+```{r}
+rm(list=ls())
+```
+
+
+First, sample 100 random values from a log-normal distribution (mu = 1, sigma = 0.25).
 ```{r}
 set.seed(100) # Set seed: For reproducing the same results
 samples <- rlnorm(100, meanlog = 1, sdlog = 0.25)
-print(samples)
+summary(samples)
+
+# Min. 1st Qu.  Median    Mean  3rd Qu.   Max. 
+#1.540   2.335   2.678   2.811   3.203   5.184
+
 ```
 
 Second, create a histogram of the distribution on the log scale.
 ```{r}
-log.samples <- log(samples)
+log.samples <- log(samples) # Convert the data to a log scale
+
 cat("Mean =", mean(log.samples), "\n", "Median =", median(log.samples), "\n", "SD =", sd(log.samples))
 # Mean = 1.000728 
 # Median = 0.985145 
 # SD = 0.2551776
 
-# Draw the histogram of the sample in a log scale
-hist(log.samples, main = "Mean = 1, SD = 0.25", xlab = "Log-scaled values",ylab = "Frequency")
+# Plot the histogram of the sample on a normal scale with a normal distribution overlay
+hist(samples, freq = F, main = "The distribution of samples", xlab = "Sample values",ylab = "Frequency")
+lines(density(samples),col = 'blue')
+
+# Plot the histogram of the sample on a log scale with a normal distribution overlay
+hist(log.samples, freq = F, ylim = c(0,2), main = "The distribution of samples (log scale)", xlab = "Log-scaled values", ylab = "Frequency")
+lines(density(log.samples),col = 'blue')
 
 ```
 
